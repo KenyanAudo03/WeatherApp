@@ -14,14 +14,11 @@ const api = {
   
   function getResults(query) {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-      .then((weather) => {
-        return weather.json();
-      })
+      .then((response) => response.json())
       .then(displayResults);
   }
   
   function displayResults(weather) {
-    console.log(weather);
     let city = document.querySelector(".location .city");
     city.innerText = `${weather.name}, ${weather.sys.country}`;
   
@@ -35,8 +32,42 @@ const api = {
     let weather_el = document.querySelector(".current .weather");
     weather_el.innerText = weather.weather[0].main;
   
+    let iconLeft = document.querySelector(".current .icon-left");
+    let iconRight = document.querySelector(".current .icon-right");
+  
+    iconLeft.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+    iconLeft.alt = weather.weather[0].description;
+  
+    iconRight.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+    iconRight.alt = weather.weather[0].description;
+  
     let hilow = document.querySelector(".hi-low");
     hilow.innerText = `${weather.main.temp_min}°C / ${weather.main.temp_max}°C`;
+  
+    // Additional details
+    let feelsLike = document.querySelector(".additional-info .feels-like");
+    feelsLike.innerText = `Feels Like: ${Math.round(weather.main.feels_like)}°C`;
+  
+    let pressure = document.querySelector(".additional-info .pressure");
+    pressure.innerText = `Pressure: ${weather.main.pressure} hPa`;
+  
+    let humidity = document.querySelector(".additional-info .humidity");
+    humidity.innerText = `Humidity: ${weather.main.humidity}%`;
+  
+    let visibility = document.querySelector(".additional-info .visibility");
+    visibility.innerText = `Visibility: ${weather.visibility / 1000} km`;
+  
+    let wind = document.querySelector(".additional-info .wind");
+    wind.innerText = `Wind: ${weather.wind.speed} m/s, ${weather.wind.deg}°`;
+  
+    let sunrise = document.querySelector(".additional-info .sunrise");
+    sunrise.innerText = `Sunrise: ${new Date(weather.sys.sunrise * 1000).toLocaleTimeString()}`;
+  
+    let sunset = document.querySelector(".additional-info .sunset");
+    sunset.innerText = `Sunset: ${new Date(weather.sys.sunset * 1000).toLocaleTimeString()}`;
+  
+    let clouds = document.querySelector(".additional-info .clouds");
+    clouds.innerText = `Cloud Coverage: ${weather.clouds.all}%`;
   }
   
   function dateBuilder(d) {
@@ -71,3 +102,4 @@ const api = {
   
     return `${day} ${date} ${month} ${year}`;
   }
+  
