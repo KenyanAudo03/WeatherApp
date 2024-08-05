@@ -74,6 +74,17 @@
   .current .temp span {
     font-weight: 200;
   }
+  .current .weather-icon-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust spacing between the images and description */
+  }
+  .current .icon-left,
+  .current .icon-right {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+  }
   .current .weather {
     color: #eeeeee;
     font-size: 32px;
@@ -88,3 +99,15 @@
     font-weight: 500;
     text-shadow: 0 3px rgba(0, 0, 0, 0.4);
   }
+  .additional-info {
+    margin-top: 20px;
+    color: #eeeeee;
+    font-size: 16px;
+    font-weight: 400;
+    text-shadow: 0 3px rgba(0, 0, 0, 0.4);
+  }
+  
+  .additional-info div {
+    margin-bottom: 10px;
+  }
+    
