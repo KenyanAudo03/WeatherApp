@@ -6,8 +6,11 @@
   body {
     font-family: "Outfit", sans-serif;
     background-image: url("https://images3.alphacoders.com/109/1091500.jpg");
-    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     background-position: top center;
+    background-repeat: no-repeat;
+    height: auto;
   }
   .app-wrap {
     display: flex;
