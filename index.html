@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="download.png" type="image/x-icon">
+    <link rel="icon" href="download.png" type="image/x-icon" />
   </head>
 
   <body>
@@ -26,8 +26,30 @@
 
       <div class="current">
         <div class="temp">18<span>°C</span></div>
-        <div class="weather">Sunny</div>
+        <div class="weather-icon-description">
+          <img
+            class="icon-left"
+            src="https://openweathermap.org/img/wn/03d@2x.png"
+            alt="Cloudy"
+          />
+          <div class="weather">Cloudy</div>
+          <img
+            class="icon-right"
+            src="https://openweathermap.org/img/wn/03d@2x.png"
+            alt="Cloudy"
+          />
+        </div>
         <div class="hi-low">13°C / 16°C</div>
+        <div class="additional-info">
+          <div class="feels-like">Feels Like: 17°C</div>
+          <div class="pressure">Pressure: 1017 hPa</div>
+          <div class="humidity">Humidity: 65%</div>
+          <div class="visibility">Visibility: 10 km</div>
+          <div class="wind">Wind: 3.09 m/s, 40°</div>
+          <div class="sunrise">Sunrise: 6:00 AM</div>
+          <div class="sunset">Sunset: 6:30 PM</div>
+          <div class="clouds">Cloud Coverage: 0%</div>
+        </div>
       </div>
     </main>
     <script src="index.js"></script>
